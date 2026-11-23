@@ -15,6 +15,7 @@ namespace ConsoleApp1
             Condiciondecarrera();
         }
 
+        // RETO 1
         static void Miprimerhilo()
         {
             Console.WriteLine("ID main: " + Environment.CurrentManagedThreadId);
@@ -39,7 +40,9 @@ namespace ConsoleApp1
             Thread.Sleep(500);
             Console.WriteLine("5");
         }
+        //
 
+        // RETO 2
         static void Condiciondecarrera()
         {
             //Thread hilo1 = new Thread(incrementarVariable);
@@ -70,5 +73,6 @@ namespace ConsoleApp1
                 Interlocked.Increment(ref incrementarCompartida);
             }
         }
+        //
     }
 }
