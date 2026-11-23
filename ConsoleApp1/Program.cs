@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Diagnostics;
+using System.Threading;
 using System.Timers;
 
 namespace ConsoleApp1
@@ -12,7 +13,7 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            Condiciondecarrera();
+            Tareasytiempo();
         }
 
         // RETO 1
@@ -72,6 +73,28 @@ namespace ConsoleApp1
             {
                 Interlocked.Increment(ref incrementarCompartida);
             }
+        }
+        //
+
+        // RETO 3
+        static void Tareasytiempo()
+        {
+            Stopwatch sw = Stopwatch.StartNew();
+
+            /*Task.Delay(1000).Wait();
+            Task.Delay(2000).Wait();
+            Task.Delay(3000).Wait();*/
+
+
+
+            Task.WhenAll(Task.Delay(1000),
+            Task.Delay(2000),
+            Task.Delay(3000)).Wait();
+
+            sw.Stop();
+
+            Console.WriteLine(sw.Elapsed);
+
         }
         //
     }
